@@ -5,12 +5,12 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import cl.proyecto.proyecto.model.user;
+import cl.proyecto.proyecto.dto.User;
 
 @Repository
-public interface userRepository extends JpaRepository<user, Integer> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
-    public Optional<user> findByMail(String email);
+    public Optional<User> findByMail(String email);
 
 
 }

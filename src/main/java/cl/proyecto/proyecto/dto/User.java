@@ -1,4 +1,4 @@
-package cl.proyecto.proyecto.model;
+package cl.proyecto.proyecto.dto;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "usuarios")
-public class user {
+public class User {
 
 
     @Id
