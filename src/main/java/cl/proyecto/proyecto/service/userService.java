@@ -43,6 +43,10 @@ public class userService {
         return aux;
     }
 
+    public user findByMail(String email){
+        return UserRepository.findByMail(email).orElse(null);
+    }
+
     public void deleteUsr(Integer id){
         user aux = findById(id);
         if(aux != null){

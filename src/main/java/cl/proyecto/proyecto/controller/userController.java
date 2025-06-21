@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cl.proyecto.proyecto.model.user;
 import cl.proyecto.proyecto.service.userService;
+
 
 @RestController
 @RequestMapping("/api/v0/usuarios/")
@@ -52,6 +52,15 @@ public class userController {
     @PutMapping("{id}")
     public ResponseEntity<user> actualizar(@PathVariable Integer id, @RequestBody user usr){
         user aux = service.update(usr, id);
+        if(aux == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(aux);
+    }
+
+    @GetMapping("mail/{mail}")
+    public ResponseEntity<user> buscarPorMail(@PathVariable String mail) {
+        user aux = service.findByMail(mail);
         if(aux == null){
             return ResponseEntity.notFound().build();
         }
